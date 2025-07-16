@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.media.RingtoneManager
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import android.app.NotificationManager
+import com.example.ab42checks.NotificationUtils
 import com.example.ab42checks.databinding.ActivityMainBinding
 import java.net.HttpURLConnection
 import java.net.URL
@@ -62,6 +64,16 @@ class MainActivity: AppCompatActivity() {
             ExistingPeriodicWorkPolicy.UPDATE,
             request
         )
+
+        // Show a sticky notification immediately and trigger an initial status check
+        NotificationUtils.createChannel(this)
+        val nm = getSystemService(NotificationManager::class.java)
+        nm.notify(
+            NotificationUtils.NOTIFICATION_ID,
+            NotificationUtils.buildNotification(this, "Checking status...")
+        )
+        val oneTime = OneTimeWorkRequestBuilder<StatusCheckWorker>().build()
+        WorkManager.getInstance(this).enqueue(oneTime)
 
         handler.post(pollRunnable)
     }

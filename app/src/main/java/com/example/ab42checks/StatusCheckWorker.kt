@@ -1,18 +1,12 @@
 package com.example.ab42checks
 
-import android.app.Notification
-import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.media.RingtoneManager
-import android.os.Build
 import android.util.Log
-import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.example.ab42checks.StatusActivity
+import com.example.ab42checks.NotificationUtils
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -20,10 +14,10 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
 
     override suspend fun doWork(): Result {
         Log.d(TAG, "Starting background status check")
-        createNotificationChannel()
+        NotificationUtils.createChannel(applicationContext)
         val status = checkStatus()
         val nm = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        nm.notify(NOTIFICATION_ID, buildNotification(status))
+        nm.notify(NotificationUtils.NOTIFICATION_ID, NotificationUtils.buildNotification(applicationContext, status))
         if (status == "Available") {
             playSound()
         }
@@ -60,36 +54,7 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
         }
     }
 
-    private fun buildNotification(status: String): Notification {
-        val intent = Intent(applicationContext, StatusActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        val pendingIntent = PendingIntent.getActivity(
-            applicationContext,
-            0,
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-        return NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setContentTitle("Piscine Status")
-            .setContentText(status)
-            .setContentIntent(pendingIntent)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setOngoing(true)
-            .build()
-    }
-
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                CHANNEL_ID,
-                "Status Monitor",
-                NotificationManager.IMPORTANCE_LOW
-            )
-            val nm = applicationContext.getSystemService(NotificationManager::class.java)
-            nm.createNotificationChannel(channel)
-        }
-    }
+    // Notification creation handled by NotificationUtils
 
     private fun playSound() {
         try {
@@ -102,8 +67,6 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
     }
 
     companion object {
-        private const val CHANNEL_ID = "status_channel"
-        private const val NOTIFICATION_ID = 1
         private const val TAG = "StatusCheckWorker"
     }
 }
