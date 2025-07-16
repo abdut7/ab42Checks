@@ -22,9 +22,7 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 class MainActivity: AppCompatActivity() {
-
-    private lateinit
-    var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val handler = Handler(Looper.getMainLooper())
     private val pollRunnable: Runnable = object: Runnable {
         override fun run() {
@@ -34,7 +32,7 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle ? ) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -55,6 +53,10 @@ class MainActivity: AppCompatActivity() {
         }
         binding.checkStatusButton.setOnClickListener {
             startActivity(Intent(this, StatusActivity::class.java))
+        }
+        binding.startServiceButton.setOnClickListener {
+            val intent = Intent(this, StatusCheckService::class.java)
+            startService(intent)
         }
 
         val request = PeriodicWorkRequestBuilder < StatusCheckWorker > (15, java.util.concurrent.TimeUnit.MINUTES)
@@ -194,7 +196,6 @@ class MainActivity: AppCompatActivity() {
     }
 
     companion object {
-        private
-        const val TAG = "MainActivity"
+        private const val TAG = "MainActivity"
     }
 }
