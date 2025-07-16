@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val pollRunnable: Runnable = object : Runnable {
         override fun run() {
             checkPiscine()
+            checkPiscineStatus()
             handler.postDelayed(this, 500)
         }
     }
@@ -34,7 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        binding.reloadButton.setOnClickListener { checkPiscine() }
+        binding.reloadButton.setOnClickListener {
+            checkPiscine()
+            checkPiscineStatus()
+        }
         binding.checkStatusButton.setOnClickListener {
             startActivity(Intent(this, StatusActivity::class.java))
         }
@@ -90,6 +94,39 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.e(TAG, "Error checking piscine", e)
                 runOnUiThread { binding.statusText.text = "Error: ${e.message}" }
+            }
+        }
+    }
+
+    private fun checkPiscineStatus() {
+        binding.piscineStatusText.text = "Loading..."
+        thread {
+            try {
+                Log.d(TAG, "Calling piscine status API")
+                val url = URL("https://42abudhabi.ae/piscine-status/")
+                val connection = url.openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                val code = connection.responseCode
+                Log.d(TAG, "Piscine status response code: $code")
+                val html = connection.inputStream.bufferedReader().use { it.readText() }
+                connection.disconnect()
+
+                val open = html.split("08/2025").size - 1 > 1 ||
+                        html.contains("09/2025") || html.contains("10/2025")
+
+                val message = if (code == HttpURLConnection.HTTP_OK) {
+                    if (open) "Open" else "No new opens"
+                } else {
+                    "Error: $code"
+                }
+
+                runOnUiThread { binding.piscineStatusText.text = message }
+                if (message == "Open") {
+                    playSound()
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error checking piscine status", e)
+                runOnUiThread { binding.piscineStatusText.text = "Error: ${e.message}" }
             }
         }
     }
