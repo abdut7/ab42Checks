@@ -2,6 +2,8 @@ package com.example.ab42checks
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.media.RingtoneManager
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,13 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val handler = Handler(Looper.getMainLooper())
+    private val pollRunnable: Runnable = object : Runnable {
+        override fun run() {
+            checkPiscine()
+            handler.postDelayed(this, 500)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             ExistingPeriodicWorkPolicy.UPDATE,
             request
         )
+
+        handler.post(pollRunnable)
     }
 
     private fun checkPiscine() {
@@ -85,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        handler.removeCallbacks(pollRunnable)
     }
 
     private fun playSound() {
