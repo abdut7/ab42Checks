@@ -27,7 +27,7 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
 
     private fun checkStatus(): String {
         return try {
-            Log.d(TAG, "Calling status API")
+            Log.d(TAG, "Calling status API abababababab")
             val url = URL("https://apply.42abudhabi.ae/users/1225298/id_checks_users")
             val connection = url.openConnection() as HttpURLConnection
             connection.requestMethod = "GET"

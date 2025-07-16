@@ -28,7 +28,7 @@ class MainActivity: AppCompatActivity() {
         override fun run() {
             checkPiscine()
             checkPiscineStatus()
-            handler.postDelayed(this, 1000)
+            handler.postDelayed(this, 1 * 60 * 1000)
         }
     }
 
