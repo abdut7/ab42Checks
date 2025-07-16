@@ -1,19 +1,15 @@
 package com.example.ab42checks
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.example.ab42checks.databinding.ActivityMainBinding
+import kotlin.concurrent.thread
+import java.net.HttpURLConnection
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,37 +19,53 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+        binding.webview.settings.javaScriptEnabled = true
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        loadHtml()
+    }
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
+    private fun loadHtml() {
+        thread {
+            try {
+                val url = URL("https://apply.42abudhabi.ae/users/1225298/id_checks_users")
+                val connection = url.openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                connection.setRequestProperty(
+                    "accept",
+                    "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+                )
+                connection.setRequestProperty("accept-encoding", "gzip, deflate, br, zstd")
+                connection.setRequestProperty(
+                    "accept-language",
+                    "en-GB,en;q=0.9,en-US;q=0.8,fr;q=0.7,ml;q=0.6"
+                )
+                connection.setRequestProperty("cache-control", "no-cache")
+                connection.setRequestProperty(
+                    "cookie",
+                    "_scid=noOSqzHmjYqvpfWkVsGDR4qYXiqs703s; _fbp=fb.1.1749910519931.318927756812476318; _tt_enable_cookie=1; _ttp=01JXQCQ107NWE8M9S3X0QG1456_.tt.1; cookieconsent_status=allow; _gid=GA1.2.581311328.1752448607; _ScCbts=%5B%5D; _sctr=1%7C1752436800000; locale=en; _gcl_au=1.1.965288889.1749910519.579472200.1752486232.1752486233; _admissions_session_production=da457ae5ca6ae36073dff5d9e368bc4f; _scid_r=ogOSqzHmjYqvpfWkVsGDR4qYXiqs703sEbmQrw; _ga=GA1.1.1596495760.1749910520; _ga_8M0TZSR8V1=GS2.1.s1752486212$o6$g1$t1752487112$j51$l0$h2104396700; _ga_6H0SY0TE1H=GS2.1.s1752486212$o6$g1$t1752487112$j51$l0$h0; ttcsid=1752486212829::rTLIzKr-CyDZx_hOdhfw.5.1752487113580; ttcsid_BTG7E331811BQC941EDG=1752486212829::H0Kntb78IEXcWFdcqwU3.5.1752487113806; ttcsid_CPHGJRJC77UAVM1484PG=1752486212830::VfLuXLo3eCPLEA_boFsY.5.1752487113806; ttcsid_CQB3KEBC77UCUPKFUIH0=1752486212909::D5bsCp5FXkK9B4B9SRsM.5.1752487113806; ph_phc_w0Uj0THoEoBYOEhEmdFtz36tIi21gTdD7eINnBpF3Dc_posthog=%7B%22distinct_id%22%3A%2201976ecb-8511-7a9a-83c8-013651896d52%22%2C%22%24sesid%22%3A%5Bnull%2Cnull%2Cnull%5D%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22https%3A%2F%2Fwww.google.com%2F%22%2C%22u%22%3A%22https%3A%2F%2F42abudhabi.ae%2F%22%7D%7D"
+                )
+                connection.setRequestProperty("sec-ch-ua-platform", "macOS")
+                connection.setRequestProperty("sec-fetch-dest", "document")
+                connection.setRequestProperty("sec-fetch-mode", "navigate")
+                connection.setRequestProperty("sec-fetch-site", "none")
+                connection.setRequestProperty("sec-fetch-user", "?1")
+                connection.setRequestProperty("upgrade-insecure-requests", "1")
+                connection.setRequestProperty(
+                    "user-agent",
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+                )
+
+                val html = connection.inputStream.bufferedReader().use { it.readText() }
+                connection.disconnect()
+
+                runOnUiThread {
+                    binding.webview.loadDataWithBaseURL(null, html, "text/html", "utf-8", null)
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    binding.webview.loadData("Error: ${e.message}", "text/plain", "utf-8")
+                }
+            }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
     }
 }
