@@ -2,6 +2,8 @@ package com.example.ab42checks
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ab42checks.databinding.ActivityMainBinding
 import java.net.HttpURLConnection
@@ -11,6 +13,13 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val handler = Handler(Looper.getMainLooper())
+    private val updateRunnable = object : Runnable {
+        override fun run() {
+            checkPiscine()
+            handler.postDelayed(this, 500)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, StatusActivity::class.java))
         }
 
-        checkPiscine()
+        handler.post(updateRunnable)
     }
 
     private fun checkPiscine() {
@@ -65,5 +74,10 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread { binding.statusText.text = "Error: ${e.message}" }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(updateRunnable)
     }
 }
