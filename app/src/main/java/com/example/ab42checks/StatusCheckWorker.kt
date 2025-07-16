@@ -9,6 +9,7 @@ import androidx.work.WorkerParameters
 import com.example.ab42checks.NotificationUtils
 import java.net.HttpURLConnection
 import java.net.URL
+import android.media.MediaPlayer
 
 class StatusCheckWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
 
@@ -56,15 +57,24 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
 
     // Notification creation handled by NotificationUtils
 
-    private fun playSound() {
-        try {
-            val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val ringtone = RingtoneManager.getRingtone(applicationContext, uri)
-            ringtone.play()
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to play sound", e)
-        }
+  private fun playSound() {
+    try {
+        val assetFileDescriptor = applicationContext.assets.openFd("iphone.mp3")
+        val mediaPlayer = MediaPlayer()
+
+        mediaPlayer.setDataSource(
+            assetFileDescriptor.fileDescriptor,
+            assetFileDescriptor.startOffset,
+            assetFileDescriptor.length
+        )
+        mediaPlayer.isLooping = true
+        mediaPlayer.prepare()
+        mediaPlayer.start()
+    } catch (e: Exception) {
+        Log.e(TAG, "Failed to play sound", e)
     }
+}
+
 
     companion object {
         private const val TAG = "StatusCheckWorker"
