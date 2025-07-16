@@ -2,8 +2,10 @@ package com.example.ab42checks
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.example.ab42checks.databinding.ActivityMainBinding
 import java.net.HttpURLConnection
 import java.net.URL
@@ -26,7 +28,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, StatusActivity::class.java))
         }
 
-        ContextCompat.startForegroundService(this, Intent(this, StatusMonitorService::class.java))
+        val request = PeriodicWorkRequestBuilder<StatusCheckWorker>(15, java.util.concurrent.TimeUnit.MINUTES)
+            .build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "status-monitor",
+            ExistingPeriodicWorkPolicy.UPDATE,
+            request
+        )
     }
 
     private fun checkPiscine() {
