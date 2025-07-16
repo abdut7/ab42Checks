@@ -75,9 +75,6 @@ class MainActivity: AppCompatActivity() {
         val oneTime = OneTimeWorkRequestBuilder<StatusCheckWorker>().build()
         WorkManager.getInstance(this).enqueue(oneTime)
 
-        val serviceIntent = Intent(this, StatusMonitorService::class.java)
-        ContextCompat.startForegroundService(this, serviceIntent)
-
         handler.post(pollRunnable)
     }
 
