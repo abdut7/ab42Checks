@@ -17,7 +17,7 @@ class StatusCheckService : Service() {
     private val pollRunnable = object : Runnable {
         override fun run() {
             checkStatus()
-            handler.postDelayed(this, 4 * 1000)
+            handler.postDelayed(this, 60 * 1000)
         }
     }
 
