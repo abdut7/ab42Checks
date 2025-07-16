@@ -5,8 +5,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Intent
-import android.media.MediaPlayer
-import android.media.RingtoneManager
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -19,7 +17,6 @@ import kotlin.concurrent.thread
 class StatusMonitorService : Service() {
 
     private val handler = Handler(Looper.getMainLooper())
-    private var player: MediaPlayer? = null
     private var lastStatus: String? = null
 
     private val updateRunnable = object : Runnable {
@@ -43,7 +40,6 @@ class StatusMonitorService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacks(updateRunnable)
-        stopAlarm()
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -72,22 +68,6 @@ class StatusMonitorService : Service() {
     private fun updateNotification(status: String) {
         val nm = getSystemService(NotificationManager::class.java)
         nm.notify(NOTIFICATION_ID, buildNotification(status))
-    }
-
-    private fun startAlarm() {
-        if (player == null) {
-            val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-            player = MediaPlayer.create(this, uri)?.apply {
-                isLooping = true
-                start()
-            }
-        }
-    }
-
-    private fun stopAlarm() {
-        player?.stop()
-        player?.release()
-        player = null
     }
 
     private fun checkStatus() {
@@ -129,11 +109,6 @@ class StatusMonitorService : Service() {
     }
 
     private fun handleStatus(status: String) {
-        if (status == "Available") {
-            startAlarm()
-        } else {
-            stopAlarm()
-        }
         if (status != lastStatus) {
             lastStatus = status
             updateNotification(status)
