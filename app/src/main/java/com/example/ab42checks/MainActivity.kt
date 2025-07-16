@@ -14,12 +14,13 @@ import com.example.ab42checks.databinding.ActivityMainBinding
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.concurrent.thread
+import android.media.MediaPlayer
+class MainActivity: AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+    private lateinit
+    var binding: ActivityMainBinding
     private val handler = Handler(Looper.getMainLooper())
-    private val pollRunnable: Runnable = object : Runnable {
+    private val pollRunnable: Runnable = object: Runnable {
         override fun run() {
             checkPiscine()
             checkPiscineStatus()
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle ? ) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, StatusActivity::class.java))
         }
 
-        val request = PeriodicWorkRequestBuilder<StatusCheckWorker>(15, java.util.concurrent.TimeUnit.MINUTES)
+        val request = PeriodicWorkRequestBuilder < StatusCheckWorker > (15, java.util.concurrent.TimeUnit.MINUTES)
             .build()
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "status-monitor",
@@ -74,26 +75,33 @@ class MainActivity : AppCompatActivity() {
 
                 val code = connection.responseCode
                 Log.d(TAG, "API response code: $code")
-                val html = connection.inputStream.bufferedReader().use { it.readText() }
+                val html = connection.inputStream.bufferedReader().use {
+                    it.readText()
+                }
                 connection.disconnect()
 
-                val message = if (code == HttpURLConnection.HTTP_OK) {
-                    if (html.contains("There are no available piscines right now")) {
+                val message =
+                    if (code == HttpURLConnection.HTTP_OK) {
+                        if (html.contains("There are no available piscines right now")) {
                         "There are no available piscines right now"
+                        } else {
+                            "Available"
+                        }
                     } else {
-                        "Available"
+                        "Error: $code"
                     }
-                } else {
-                    "Error: $code"
-                }
 
-                runOnUiThread { binding.statusText.text = message }
+                runOnUiThread {
+                    binding.statusText.text = message
+                }
                 if (message == "Available") {
                     playSound()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error checking piscine", e)
-                runOnUiThread { binding.statusText.text = "Error: ${e.message}" }
+                runOnUiThread {
+                    binding.statusText.text = "Error: ${e.message}"
+                }
             }
         }
     }
@@ -108,25 +116,33 @@ class MainActivity : AppCompatActivity() {
                 connection.requestMethod = "GET"
                 val code = connection.responseCode
                 Log.d(TAG, "Piscine status response code: $code")
-                val html = connection.inputStream.bufferedReader().use { it.readText() }
+                val html = connection.inputStream.bufferedReader().use {
+                    it.readText()
+                }
                 connection.disconnect()
 
                 val open = html.split("08/2025").size - 1 > 1 ||
-                        html.contains("09/2025") || html.contains("10/2025")
+                    html.contains("09/2025") || html.contains("10/2025")
 
-                val message = if (code == HttpURLConnection.HTTP_OK) {
-                    if (open) "Open" else "No new opens"
-                } else {
-                    "Error: $code"
+                val message =
+                    if (code == HttpURLConnection.HTTP_OK) {
+                        if (open) "Open"
+                        else "No new opens"
+                    } else {
+                        "Error: $code"
+                    }
+
+                runOnUiThread {
+                    binding.piscineStatusText.text = message
                 }
-
-                runOnUiThread { binding.piscineStatusText.text = message }
                 if (message == "Open") {
                     playSound()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error checking piscine status", e)
-                runOnUiThread { binding.piscineStatusText.text = "Error: ${e.message}" }
+                runOnUiThread {
+                    binding.piscineStatusText.text = "Error: ${e.message}"
+                }
             }
         }
     }
@@ -138,15 +154,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun playSound() {
         try {
-            val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-            val ringtone = RingtoneManager.getRingtone(this, uri)
-            ringtone.play()
+            val assetFileDescriptor = assets.openFd("iphone.mp3")
+            val mediaPlayer = MediaPlayer()
+
+            mediaPlayer.setDataSource(
+                assetFileDescriptor.fileDescriptor,
+                assetFileDescriptor.startOffset,
+                assetFileDescriptor.length
+            )
+            mediaPlayer.isLooping = true
+            mediaPlayer.prepare() // or prepareAsync() for non-blocking
+            mediaPlayer.start()
         } catch (e: Exception) {
             Log.e(TAG, "Failed to play sound", e)
         }
     }
 
     companion object {
-        private const val TAG = "MainActivity"
+        private
+        const val TAG = "MainActivity"
     }
 }
