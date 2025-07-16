@@ -6,10 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import android.app.NotificationManager
 import com.example.ab42checks.NotificationUtils
 import com.example.ab42checks.databinding.ActivityMainBinding
@@ -59,14 +55,6 @@ class MainActivity: AppCompatActivity() {
             startService(intent)
         }
 
-        val request = PeriodicWorkRequestBuilder < StatusCheckWorker > (15, java.util.concurrent.TimeUnit.MINUTES)
-            .build()
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "status-monitor",
-            ExistingPeriodicWorkPolicy.UPDATE,
-            request
-        )
-
         // Show a sticky notification immediately and trigger an initial status check
         NotificationUtils.createChannel(this)
         val nm = getSystemService(NotificationManager::class.java)
@@ -74,9 +62,7 @@ class MainActivity: AppCompatActivity() {
             NotificationUtils.NOTIFICATION_ID,
             NotificationUtils.buildNotification(this, "Checking status...")
         )
-        val oneTime = OneTimeWorkRequestBuilder<StatusCheckWorker>().build()
-        WorkManager.getInstance(this).enqueue(oneTime)
-
+        
         handler.post(pollRunnable)
     }
 
