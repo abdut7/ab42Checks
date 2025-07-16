@@ -3,13 +3,16 @@ package com.example.ab42checks
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
-import android.os.Build
+import android.content.Intent
 import android.media.RingtoneManager
+import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
+import com.example.ab42checks.StatusActivity
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -58,9 +61,19 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
     }
 
     private fun buildNotification(status: String): Notification {
+        val intent = Intent(applicationContext, StatusActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            applicationContext,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
         return NotificationCompat.Builder(applicationContext, CHANNEL_ID)
             .setContentTitle("Piscine Status")
             .setContentText(status)
+            .setContentIntent(pendingIntent)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setOngoing(true)
             .build()
