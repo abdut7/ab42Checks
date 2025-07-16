@@ -4,12 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.media.RingtoneManager
 import android.util.Log
-import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
-import com.example.ab42checks.StatusCheckService
 import com.example.ab42checks.databinding.ActivityMainBinding
 import java.net.HttpURLConnection
 import java.net.URL
@@ -38,11 +36,6 @@ class MainActivity : AppCompatActivity() {
             "status-monitor",
             ExistingPeriodicWorkPolicy.UPDATE,
             request
-        )
-
-        ContextCompat.startForegroundService(
-            this,
-            Intent(this, StatusCheckService::class.java)
         )
     }
 
