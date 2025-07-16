@@ -5,6 +5,8 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.media.RingtoneManager
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
@@ -14,15 +16,20 @@ import java.net.URL
 class StatusCheckWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
+        Log.d(TAG, "Starting background status check")
         createNotificationChannel()
         val status = checkStatus()
         val nm = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         nm.notify(NOTIFICATION_ID, buildNotification(status))
+        if (status == "Available") {
+            playSound()
+        }
         return Result.success()
     }
 
     private fun checkStatus(): String {
         return try {
+            Log.d(TAG, "Calling status API")
             val url = URL("https://apply.42abudhabi.ae/users/1225298/id_checks_users")
             val connection = url.openConnection() as HttpURLConnection
             connection.requestMethod = "GET"
@@ -32,6 +39,7 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
             connection.setRequestProperty("cache-control", "no-cache")
             connection.setRequestProperty("user-agent", "Mozilla/5.0 (Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36")
             val code = connection.responseCode
+            Log.d(TAG, "API response code: $code")
             val html = connection.inputStream.bufferedReader().use { it.readText() }
             connection.disconnect()
             if (code == HttpURLConnection.HTTP_OK) {
@@ -44,6 +52,7 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
                 "Error: $code"
             }
         } catch (e: Exception) {
+            Log.e(TAG, "Error checking status", e)
             "Error: ${e.message}"
         }
     }
@@ -69,8 +78,19 @@ class StatusCheckWorker(appContext: Context, params: WorkerParameters) : Corouti
         }
     }
 
+    private fun playSound() {
+        try {
+            val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val ringtone = RingtoneManager.getRingtone(applicationContext, uri)
+            ringtone.play()
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to play sound", e)
+        }
+    }
+
     companion object {
         private const val CHANNEL_ID = "status_channel"
         private const val NOTIFICATION_ID = 1
+        private const val TAG = "StatusCheckWorker"
     }
 }

@@ -2,6 +2,8 @@ package com.example.ab42checks
 
 import android.content.Intent
 import android.os.Bundle
+import android.media.RingtoneManager
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         binding.statusText.text = "Loading..."
         thread {
             try {
+                Log.d(TAG, "Calling piscine API")
                 val url = URL("https://apply.42abudhabi.ae/users/1225298/id_checks_users")
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "GET"
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 connection.setRequestProperty("user-agent", "Mozilla/5.0 (Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36")
 
                 val code = connection.responseCode
+                Log.d(TAG, "API response code: $code")
                 val html = connection.inputStream.bufferedReader().use { it.readText() }
                 connection.disconnect()
 
@@ -69,8 +73,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 runOnUiThread { binding.statusText.text = message }
+                if (message == "Available") {
+                    playSound()
+                }
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e(TAG, "Error checking piscine", e)
                 runOnUiThread { binding.statusText.text = "Error: ${e.message}" }
             }
         }
@@ -78,5 +85,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    private fun playSound() {
+        try {
+            val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val ringtone = RingtoneManager.getRingtone(this, uri)
+            ringtone.play()
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to play sound", e)
+        }
+    }
+
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }
