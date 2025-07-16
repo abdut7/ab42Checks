@@ -32,7 +32,8 @@
             android:theme="@style/Theme.Ab42checks" />
         <service
             android:name=".StatusCheckService"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
     </application>
 
 </manifest>

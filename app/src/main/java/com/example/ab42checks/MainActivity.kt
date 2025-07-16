@@ -52,7 +52,7 @@ class MainActivity: AppCompatActivity() {
         }
         binding.startServiceButton.setOnClickListener {
             val intent = Intent(this, StatusCheckService::class.java)
-            startService(intent)
+            ContextCompat.startForegroundService(this, intent)
         }
 
         // Show a sticky notification immediately and trigger an initial status check
