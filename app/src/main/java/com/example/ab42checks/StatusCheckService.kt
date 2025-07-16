@@ -25,11 +25,8 @@ class StatusCheckService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         NotificationUtils.createChannel(this)
-        val nm = getSystemService(NotificationManager::class.java)
-        nm.notify(
-            NotificationUtils.NOTIFICATION_ID,
-            NotificationUtils.buildNotification(this, "Checking status...")
-        )
+        val notification = NotificationUtils.buildNotification(this, "Checking status...")
+        startForeground(NotificationUtils.NOTIFICATION_ID, notification)
         handler.post(pollRunnable)
         return START_STICKY
     }
