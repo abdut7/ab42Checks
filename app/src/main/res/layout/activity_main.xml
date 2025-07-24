@@ -33,6 +33,14 @@
             android:text="Loading..."
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/piscineStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Loading..."
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/reloadButton"
             android:layout_width="wrap_content"
@@ -46,6 +54,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Check Status" />
+
+        <Button
+            android:id="@+id/startServiceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Start Service" />
 
     </LinearLayout>
 
