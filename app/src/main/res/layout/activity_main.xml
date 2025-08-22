@@ -41,6 +41,22 @@
             android:text="Loading..."
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/lastApiCallText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Last API call: never"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lastSyncText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Last sync: never"
+            android:textSize="16sp" />
+
         <Button
             android:id="@+id/reloadButton"
             android:layout_width="wrap_content"
@@ -61,6 +77,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Start Service" />
+
+        <EditText
+            android:id="@+id/cookieInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Cookie"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start" />
+
+        <Button
+            android:id="@+id/updateCookieButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Update Cookie" />
 
     </LinearLayout>
 
