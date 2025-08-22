@@ -80,7 +80,7 @@ class MainActivity: AppCompatActivity() {
                 connection.setRequestProperty("cache-control", "no-cache")
                 connection.setRequestProperty(
                     "cookie",
-                    "_scid=noOSqzHmjYqvpfWkVsGDR4qYXiqs703s; _fbp=fb.1.1749910519931.318927756812476318; _tt_enable_cookie=1; _ttp=01JXQCQ107NWE8M9S3X0QG1456_.tt.1; cookieconsent_status=allow; _gid=GA1.2.581311328.1752448607; _ScCbts=%5B%5D; _sctr=1%7C1752436800000; locale=en; _gcl_au=1.1.965288889.1749910519.579472200.1752486232.1752486233; _admissions_session_production=da457ae5ca6ae36073dff5d9e368bc4f; _scid_r=ogOSqzHmjYqvpfWkVsGDR4qYXiqs703sEbmQrw; _ga=GA1.1.1596495760.1749910520; _ga_8M0TZSR8V1=GS2.1.s1752486212\$o6\$g1\$t1752487112\$j51\$l0\$h2104396700; _ga_6H0SY0TE1H=GS2.1.s1752486212\$o6\$g1\$t1752487112\$j51\$l0\$h0; ttcsi=1752486212829::rTLIzKr-CyDZx_hOdhfw.5.1752487113580; ttcsid_BTG7E331811BQC941EDG=1752486212829::H0Kntb78IEXcWFdcqwU3.5.1752487113806; ttcsid_CPHGJRJC77UAVM1484PG=1752486212830::VfLuXLo3eCPLEA_boFsY.5.1752487113806; ttcsid_CQB3KEBC77UCPKFUIH0=1752486212909::D5bsCp5FXkK9B4B9SRsM.5.1752487113806; ph_phc_w0Uj0THoEoBYOEhEmdFtz36tIi21gTdD7eINnBpF3Dc_posthog=%7B%22distinct_id%22%3A%2201976ecb-8511-7a9a-83c8-013651896d52%22%2C%22%24sesid%22%3A%5Bnull%2Cnull%2Cnull%5D%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22https%3A%2F%2Fwww.google.com%2F%22%2C%22u%22%3A%22https%3A%2F%2F42abudhabi.ae%2F%22%7D%7D"
+                    "_scid=noOSqzHmjYqvpfWkVsGDR4qYXiqs703s; _fbp=fb.1.1749910519931.318927756812476318; _tt_enable_cookie=1; _ttp=01JXQCQ107NWE8M9S3X0QG1456_.tt.1; cookieconsent_status=allow; locale=en; _gid=GA1.2.1924434881.1755887521; _ScCbts=%5B%22607%3Bchrome.2%3A2%3A5%22%2C%22626%3Bchrome.2%3A2%3A5%22%5D; _sctr=1%7C1755806400000; _gcl_au=1.1.965288889.1749910519.861386868.1755887538.1755887539; _admissions_session_production=e69da6aad9b7eb0adeb246c6aa1a2faa; _ga=GA1.2.1596495760.1749910520; _scid_r=owOSqzHmjYqvpfWkVsGDR4qYXiqs703sEbmQ3Q; ttcsid=1755902309516::5jThrHy7o2S7BeEvJ26b.22.1755902375566; ttcsid_CPHGJRJC77UAVM1484PG=1755902309516::RTahyxS85xzkhlx1FJyL.22.1755902375786; ttcsid_CQB3KEBC77UCUPKFUIH0=1755902309517::pWFtIjyd1lg4JWq81J_Z.22.1755902375786; ttcsid_BTG7E331811BQC941EDG=1755902309516::7blj5eBmtoM-pV7QMEWy.22.1755902375786; ph_phc_w0Uj0THoEoBYOEhEmdFtz36tIi21gTdD7eINnBpF3Dc_posthog=%7B%22distinct_id%22%3A%2201976ecb-8511-7a9a-83c8-013651896d52%22%2C%22%24sesid%22%3A%5B1755902376647%2C%220198d3ef-fac4-746a-9075-c06849468644%22%2C1755902376644%5D%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22https%3A%2F%2Fwww.google.com%2F%22%2C%22u%22%3A%22https%3A%2F%2F42abudhabi.ae%2F%22%7D%7D; _ga_8M0TZSR8V1=GS2.1.s1755902308\$o27\$g1\$t1755902377\$j58\$l0\$h1089439285; _ga_6H0SY0TE1H=GS2.1.s1755902309\$o27\$g1\$t1755902377\$j58\$l0\$h0"
                 )
                 connection.setRequestProperty("user-agent", "Mozilla/5.0 (Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36")
 
@@ -100,7 +100,7 @@ class MainActivity: AppCompatActivity() {
                         }
                     } else {
                         "Error: $code"
-                    }
+                     }
 
                 runOnUiThread {
                     binding.statusText.text = message
@@ -112,7 +112,7 @@ class MainActivity: AppCompatActivity() {
                 Log.e(TAG, "Error checking piscine", e)
                 runOnUiThread {
                     binding.statusText.text = "Error: ${e.message}"
-                }
+                  }
             }
         }
     }
@@ -141,7 +141,7 @@ class MainActivity: AppCompatActivity() {
                         else "No new opens"
                     } else {
                         "Error: $code"
-                    }
+                     }
 
                 runOnUiThread {
                     binding.piscineStatusText.text = message
@@ -153,7 +153,7 @@ class MainActivity: AppCompatActivity() {
                 Log.e(TAG, "Error checking piscine status", e)
                 runOnUiThread {
                     binding.piscineStatusText.text = "Error: ${e.message}"
-                }
+                   }
             }
         }
     }
