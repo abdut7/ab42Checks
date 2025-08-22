@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import com.example.ab42checks.CookieStore
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: SharedPreferences
@@ -62,11 +63,11 @@ class MainActivity: AppCompatActivity() {
             ContextCompat.startForegroundService(this, intent)
         }
         binding.updateCookieButton.setOnClickListener {
-            val cookie = binding.cookieInput.text.toString().replace("""$""", """\\$""")
+            val cookie = binding.cookieInput.text.toString().replace("\$", "\\$")
             prefs.edit().putString("cookie", cookie).apply()
         }
 
-        binding.cookieInput.setText(prefs.getString("cookie", ""))
+        binding.cookieInput.setText(prefs.getString("cookie", CookieStore.DEFAULT_COOKIE))
         updateLastTimes()
 
         // Show a sticky notification immediately and trigger an initial status check
@@ -92,7 +93,7 @@ class MainActivity: AppCompatActivity() {
                 connection.setRequestProperty("accept-encoding", "gzip, deflate, br")
                 connection.setRequestProperty("accept-language", "en-US,en;q=0.9")
                 connection.setRequestProperty("cache-control", "no-cache")
-                val cookie = prefs.getString("cookie", "") ?: ""
+                val cookie = prefs.getString("cookie", CookieStore.DEFAULT_COOKIE) ?: CookieStore.DEFAULT_COOKIE
                 connection.setRequestProperty("cookie", cookie)
                 connection.setRequestProperty("user-agent", "Mozilla/5.0 (Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36")
 

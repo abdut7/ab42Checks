@@ -4,6 +4,7 @@ import android.app.NotificationManager
 import android.app.Service
 import android.content.Intent
 import android.content.SharedPreferences
+import com.example.ab42checks.CookieStore
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -51,7 +52,7 @@ class StatusCheckService : Service() {
                 connection.setRequestProperty("accept-language", "en-US,en;q=0.9")
                 connection.setRequestProperty("cache-control", "no-cache")
                 connection.setRequestProperty("user-agent", "Mozilla/5.0 (Android 13; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36")
-                val cookie = prefs.getString("cookie", "") ?: ""
+                val cookie = prefs.getString("cookie", CookieStore.DEFAULT_COOKIE) ?: CookieStore.DEFAULT_COOKIE
                 connection.setRequestProperty("cookie", cookie)
                 val code = connection.responseCode
                 Log.d(TAG, "API response code: $code")
