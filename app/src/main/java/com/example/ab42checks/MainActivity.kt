@@ -18,10 +18,8 @@ import android.os.Build
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 import com.example.ab42checks.CookieStore
+import android.view.View
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: SharedPreferences
@@ -29,7 +27,6 @@ class MainActivity: AppCompatActivity() {
     private val pollRunnable: Runnable = object: Runnable {
         override fun run() {
             checkPiscine()
-            checkPiscineStatus()
             handler.postDelayed(this, 1 * 60 * 1000)
         }
     }
@@ -53,7 +50,6 @@ class MainActivity: AppCompatActivity() {
 
         binding.reloadButton.setOnClickListener {
             checkPiscine()
-            checkPiscineStatus()
         }
         binding.checkStatusButton.setOnClickListener {
             startActivity(Intent(this, StatusActivity::class.java))
@@ -62,13 +58,19 @@ class MainActivity: AppCompatActivity() {
             val intent = Intent(this, StatusCheckService::class.java)
             ContextCompat.startForegroundService(this, intent)
         }
-        binding.updateCookieButton.setOnClickListener {
+        binding.editCookieButton.setOnClickListener {
+            binding.cookieInput.visibility = View.VISIBLE
+            binding.saveCookieButton.visibility = View.VISIBLE
+            binding.cookieInput.setText(prefs.getString("cookie", CookieStore.DEFAULT_COOKIE))
+        }
+        binding.saveCookieButton.setOnClickListener {
             val cookie = binding.cookieInput.text.toString().replace("\$", "\\$")
             prefs.edit().putString("cookie", cookie).apply()
+            binding.cookieInput.visibility = View.GONE
+            binding.saveCookieButton.visibility = View.GONE
         }
 
         binding.cookieInput.setText(prefs.getString("cookie", CookieStore.DEFAULT_COOKIE))
-        updateLastTimes()
 
         // Show a sticky notification immediately and trigger an initial status check
         NotificationUtils.createChannel(this)
@@ -124,7 +126,6 @@ class MainActivity: AppCompatActivity() {
                 )
                 runOnUiThread {
                     binding.statusText.text = message
-                    updateLastTimes()
                 }
                 if (message == "Available") {
                     playSound()
@@ -133,55 +134,6 @@ class MainActivity: AppCompatActivity() {
                 Log.e(TAG, "Error checking piscine", e)
                 runOnUiThread {
                     binding.statusText.text = "Error: ${e.message}"
-                }
-            }
-        }
-    }
-
-    private fun checkPiscineStatus() {
-        binding.piscineStatusText.text = "Loading..."
-        thread {
-            try {
-                Log.d(TAG, "Calling piscine status API")
-                val url = URL("https://42abudhabi.ae/piscine-status/")
-                val connection = url.openConnection() as HttpURLConnection
-                connection.requestMethod = "GET"
-                val code = connection.responseCode
-                Log.d(TAG, "Piscine status response code: $code")
-                val html = connection.inputStream.bufferedReader().use {
-                    it.readText()
-                }
-                connection.disconnect()
-
-                val open = html.split("08/2025").size - 1 > 1 ||
-                    html.contains("09/2025") || html.contains("10/2025")
-
-                val message =
-                    if (code == HttpURLConnection.HTTP_OK) {
-                        if (open) "Open"
-                        else "No new opens"
-                    } else {
-                        "Error: $code"
-                    }
-
-                val now = System.currentTimeMillis()
-                prefs.edit().putLong("last_sync_time", now).apply()
-                val nm = getSystemService(NotificationManager::class.java)
-                nm.notify(
-                    NotificationUtils.NOTIFICATION_ID,
-                    NotificationUtils.buildNotification(this@MainActivity, message)
-                )
-                runOnUiThread {
-                    binding.piscineStatusText.text = message
-                    updateLastTimes()
-                }
-                if (message == "Open") {
-                    playSound()
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "Error checking piscine status", e)
-                runOnUiThread {
-                    binding.piscineStatusText.text = "Error: ${e.message}"
                 }
             }
         }
@@ -208,16 +160,6 @@ class MainActivity: AppCompatActivity() {
         } catch (e: Exception) {
             Log.e(TAG, "Failed to play sound", e)
         }
-    }
-
-    private fun updateLastTimes() {
-        val formatter = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-        val api = prefs.getLong("last_api_call", 0L)
-        val sync = prefs.getLong("last_sync_time", 0L)
-        val apiText = if (api != 0L) formatter.format(Date(api)) else "never"
-        val syncText = if (sync != 0L) formatter.format(Date(sync)) else "never"
-        binding.lastApiCallText.text = "Last API call: $apiText"
-        binding.lastSyncText.text = "Last sync: $syncText"
     }
 
     companion object {
