@@ -66,6 +66,9 @@ class MainActivity: AppCompatActivity() {
             binding.cookieInput.visibility = View.VISIBLE
             binding.saveCookieButton.visibility = View.VISIBLE
             binding.cookieInput.setText(prefs.getString("cookie", CookieStore.DEFAULT_COOKIE))
+            binding.scrollView.post {
+                binding.scrollView.fullScroll(View.FOCUS_DOWN)
+            }
         }
         binding.saveCookieButton.setOnClickListener {
             val cookie = binding.cookieInput.text.toString().replace("\$", "\\$")
