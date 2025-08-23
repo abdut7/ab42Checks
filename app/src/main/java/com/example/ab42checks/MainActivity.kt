@@ -20,6 +20,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.ab42checks.CookieStore
 import android.view.View
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: SharedPreferences
@@ -45,6 +48,7 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+        updateLastApiText()
 
         setSupportActionBar(binding.toolbar)
 
@@ -126,6 +130,7 @@ class MainActivity: AppCompatActivity() {
                 )
                 runOnUiThread {
                     binding.statusText.text = message
+                    updateLastApiText()
                 }
                 if (message == "Available") {
                     playSound()
@@ -160,6 +165,13 @@ class MainActivity: AppCompatActivity() {
         } catch (e: Exception) {
             Log.e(TAG, "Failed to play sound", e)
         }
+    }
+
+    private fun updateLastApiText() {
+        val formatter = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        val api = prefs.getLong("last_api_call", 0L)
+        val apiText = if (api != 0L) formatter.format(Date(api)) else "never"
+        binding.lastApiText.text = "Last API: $apiText"
     }
 
     companion object {
