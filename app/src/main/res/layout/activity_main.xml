@@ -34,28 +34,12 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/piscineStatusText"
+            android:id="@+id/lastApiText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Loading..."
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/lastApiCallText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Last API call: never"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/lastSyncText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Last sync: never"
-            android:textSize="16sp" />
+            android:text="Last API: never"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/reloadButton"
@@ -77,6 +61,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Start Service" />
+        <Button
+            android:id="@+id/editCookieButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Edit Cookie" />
 
         <EditText
             android:id="@+id/cookieInput"
@@ -86,14 +76,16 @@
             android:hint="Cookie"
             android:inputType="textMultiLine"
             android:minLines="3"
-            android:gravity="top|start" />
+            android:gravity="top|start"
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/updateCookieButton"
+            android:id="@+id/saveCookieButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Update Cookie" />
+            android:text="Save Cookie"
+            android:visibility="gone" />
 
     </LinearLayout>
 

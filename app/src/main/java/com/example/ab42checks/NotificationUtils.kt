@@ -41,10 +41,8 @@ object NotificationUtils {
         val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val formatter = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
         val api = prefs.getLong("last_api_call", 0L)
-        val sync = prefs.getLong("last_sync_time", 0L)
         val apiText = if (api != 0L) formatter.format(Date(api)) else "never"
-        val syncText = if (sync != 0L) formatter.format(Date(sync)) else "never"
-        val content = "$status\nLast API: $apiText\nLast sync: $syncText"
+        val content = "$status\nLast API: $apiText"
         return NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle("Piscine Status")
             .setContentText(status)
