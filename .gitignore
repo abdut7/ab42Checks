@@ -15,3 +15,20 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
+# ==========================
+# NODE.JS & REACT (JavaScript/TypeScript)
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+dist/
+build/
+.env
+.env.*      # For environment files
