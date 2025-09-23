@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0b73da",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<title>Trip History</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col h-screen justify-between">
+<main class="flex-grow">
+<header class="flex items-center p-4 border-b border-white/10 dark:border-white/10">
+<button class="text-black dark:text-white">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="flex-1 text-center text-xl font-bold text-black dark:text-white pr-6">History</h1>
+</header>
+<div class="p-4 flex flex-col gap-4">
+<div class="bg-white/5 dark:bg-white/5 p-4 rounded-lg flex flex-col gap-4">
+<span class="font-semibold text-black dark:text-white">May 24, 2024</span>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Pickup</button>
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Delivery</button>
+</div>
+</div>
+<div class="bg-white/5 dark:bg-white/5 p-4 rounded-lg flex flex-col gap-4">
+<span class="font-semibold text-black dark:text-white">May 23, 2024</span>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Pickup</button>
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Delivery</button>
+</div>
+</div>
+<div class="bg-white/5 dark:bg-white/5 p-4 rounded-lg flex flex-col gap-4">
+<span class="font-semibold text-black dark:text-white">May 22, 2024</span>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Pickup</button>
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Delivery</button>
+</div>
+</div>
+<div class="bg-white/5 dark:bg-white/5 p-4 rounded-lg flex flex-col gap-4">
+<span class="font-semibold text-black dark:text-white">May 21, 2024</span>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Pickup</button>
+<button class="flex-1 bg-primary/10 text-primary py-3 rounded-lg font-semibold">Delivery</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-light dark:bg-background-dark shadow-[0_-1px_0px_rgba(255,255,255,0.1)]">
+<nav class="flex justify-around items-center p-2">
+<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-xs">Route</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary dark:text-primary" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-xs font-bold">History</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "foreground-light": "#111827",
+              "foreground-dark": "#f9fafb",
+              "subtle-light": "#6b7280",
+              "subtle-dark": "#9ca3af",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
+            },
+            fontFamily: {
+              display: ["Public Sans"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<title>SchoolTrack Admin Panel</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-background-dark border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-xl font-bold">SchoolTrack</h1>
+</div>
+</div>
+<nav class="mt-8 flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path></svg>
+            Dashboard
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg bg-primary text-white" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M239.73,208H224V96a16,16,0,0,0-16-16H164a4,4,0,0,0-4,4V208H144V32.41a16.43,16.43,0,0,0-6.16-13,16,16,0,0,0-18.72-.69L39.12,72A16,16,0,0,0,32,85.34V208H16.27A8.18,8.18,0,0,0,8,215.47,8,8,0,0,0,16,224H240a8,8,0,0,0,8-8.53A8.18,8.18,0,0,0,239.73,208ZM76,184a8,8,0,0,1-8.53,8A8.18,8.18,0,0,1,60,183.72V168.27A8.19,8.19,0,0,1,67.47,160,8,8,0,0,1,76,168Zm0-56a8,8,0,0,1-8.53,8A8.19,8.19,0,0,1,60,127.72V112.27A8.19,8.19,0,0,1,67.47,104,8,8,0,0,1,76,112Zm40,56a8,8,0,0,1-8.53,8,8.18,8.18,0,0,1-7.47-8.26V168.27a8.19,8.19,0,0,1,7.47-8.26,8,8,0,0,1,8.53,8Zm0-56a8,8,0,0,1-8.53,8,8.19,8.19,0,0,1-7.47-8.26V112.27a8.19,8.19,0,0,1,7.47-8.26,8,8,0,0,1,8.53,8Z"></path></svg>
+            Schools
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M184,32H72A32,32,0,0,0,40,64V208a16,16,0,0,0,16,16H80a16,16,0,0,0,16-16V192h64v16a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V64A32,32,0,0,0,184,32ZM56,176V120H200v56Zm0-96H200v24H56ZM72,48H184a16,16,0,0,1,16,16H56A16,16,0,0,1,72,48Zm8,160H56V192H80Zm96,0V192h24v16Zm-72-60a12,12,0,1,1-12-12A12,12,0,0,1,104,148Zm72,0a12,12,0,1,1-12-12A12,12,0,0,1,176,148Zm72-68v24a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0ZM24,80v24a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z"></path></svg>
+            Buses
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg>
+            Students
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,152a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm104-24A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128ZM40,128v.33a135.93,135.93,0,0,1,176,0V128a88,88,0,0,0-176,0Zm67.5,85.58L90.45,168H49.63A88.35,88.35,0,0,0,107.5,213.58ZM128,216c.83,0,1.66,0,2.49,0l20.07-53.57a16.07,16.07,0,0,1,15-10.39h47.12c.38-1.31.72-2.64,1-4a120,120,0,0,0-171.4,0c.31,1.34.65,2.67,1,4H90.45a16.08,16.08,0,0,1,15,10.4l20,53.56C126.31,216,127.15,216,128,216Zm78.37-48H165.55l-17.09,45.59A88.34,88.34,0,0,0,206.37,168Z"></path></svg>
+            Drivers
+          </a>
+<a class="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg text-foreground-light dark:text-foreground-dark hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"></path></svg>
+            Parents
+          </a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<header class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark bg-white dark:bg-background-dark">
+<div class="relative w-full max-w-md">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-subtle-light dark:text-subtle-dark" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+</div>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-background-light dark:bg-border-dark border border-transparent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20">
+<svg class="h-6 w-6 text-subtle-light dark:text-subtle-dark" fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path></svg>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgEij0mnC0oRxKibxlFJ562BaFQPTmR7QZ-SyhEmJhg1MMK-Apm_--pkasaZ5jidkp3A5RPLQN480PA6ctV-4ftXB7b_tm-6B36Y1o1pPlqwIZPHVHAsNH1tnNTDE_iCF04PdOLXrIZ79BJpygXfLwu2Ne5klDom4GLf6-SDZ8SasMCn2shws67b-W0ZXdcO01vlh5-FSmHri4fHKW2DaZwbYqyenPpptO76mGSZK10rsg4O8JqAFksmAtOSyh1nOEidg3khNjQbJ8");'></div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-3xl font-bold">Schools</h2>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+<svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>
+              Add School
+            </button>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-subtle-light dark:text-subtle-dark" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+</div>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search schools..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+              City/Area
+              <svg class="h-4 w-4" fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+              Type
+              <svg class="h-4 w-4" fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white dark:bg-background-dark border border-border-light dark:border-border-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+              Status
+              <svg class="h-4 w-4" fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+</button>
+</div>
+<div class="overflow-x-auto bg-white dark:bg-background-dark rounded-lg border border-border-light dark:border-border-dark">
+<table class="w-full text-sm text-left">
+<thead class="bg-background-light dark:bg-border-dark/50">
+<tr>
+<th class="px-6 py-3 font-medium" scope="col">Name</th>
+<th class="px-6 py-3 font-medium" scope="col">City/Area</th>
+<th class="px-6 py-3 font-medium" scope="col">Type</th>
+<th class="px-6 py-3 font-medium" scope="col">Contact Person</th>
+<th class="px-6 py-3 font-medium" scope="col">Phone/Email</th>
+<th class="px-6 py-3 font-medium text-center" scope="col">#Buses</th>
+<th class="px-6 py-3 font-medium text-center" scope="col">#Students</th>
+<th class="px-6 py-3 font-medium" scope="col">Status</th>
+<th class="px-6 py-3 font-medium" scope="col">Updated At</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Bright Minds Academy</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Springfield</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Private</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Ms. Johnson</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-1234 / ms.johnson@brightminds.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">5</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">250</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-15</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Greenwood High</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Greenwood</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Public</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Mr. Davis</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-5678 / mr.davis@greenwood.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">8</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">400</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-20</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Oakridge Elementary</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Oakridge</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Public</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Mrs. Smith</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-9012 / mrs.smith@oakridge.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">4</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">200</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-22</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Maplewood School</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Maplewood</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Private</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Mr. Brown</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-3456 / mr.brown@maplewood.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">6</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">300</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-18</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Riverdale Academy</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Riverdale</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Private</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Ms. Clark</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-7890 / ms.clark@riverdale.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">7</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">350</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-25</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Hillside School</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Hillside</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Public</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Mrs. White</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-2468 / mrs.white@hillside.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">3</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">150</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-08-28</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-6 py-4 font-medium">Valley View School</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Valley View</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Public</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Mr. Taylor</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-1357 / mr.taylor@valleyview.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">5</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">220</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-09-01</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-medium">Sunset High</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Sunset</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Public</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">Ms. Adams</td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">555-8642 / ms.adams@sunset.edu</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">9</td>
+<td class="px-6 py-4 text-center text-subtle-light dark:text-subtle-dark">450</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-subtle-light dark:text-subtle-dark">2023-09-05</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="p-4 flex items-center justify-between">
+<button class="p-2 text-black dark:text-white">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-black dark:text-white">Children</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-grow p-4 space-y-6">
+<div class="space-y-4">
+<div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-lg p-4">
+<div class="flex items-center gap-4">
+<img alt="Alex Johnson" class="size-16 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbzrbXpCgu-gLmpSAjx8-q072FhokhoWf4KRUi0vTU7lkcVa95mJ9I1WKY9p7s340ejChhvnjE8fzk9KXOQ9XmpvlSjsTjQ1AfZl6MotiSxwvy01Xyk1eoaMxElPAy1spAkXXa9CnWC8pBlA5jRvt-1pgAoz8dkAw4ox3VUaBxlAsNbWwjDpqiPYS6Ab_Xo0qMRP88-SYlDmO-uy0e3M3ZdD4icCQHdhkj39El2yNgmQxZQOojlOgoFUqG8CR2TlZcFi48eu8fWFI"/>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-black dark:text-white">Alex Johnson</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Lincoln High School</p>
+<p class="text-sm text-primary dark:text-primary font-medium mt-1">On bus 1234, arriving in 5 min</p>
+</div>
+<button class="p-2 text-primary dark:text-primary">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-4">
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">history</span>
+<span>View History</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">event_busy</span>
+<span>Absence Records</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-lg p-4">
+<div class="flex items-center gap-4">
+<img alt="Emily Rodriguez" class="size-16 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpNTMvlZfXxjm48DiP6IXMqF8TtmHhR9gKpHq7x53Jrpew3boPZ-kCJT6X28rdF5R1afzb4eMF2BNkz0fcbBKaMvTixYub3ySraruQGfLp5KYtXAcY2shb5R6VVhrVJWYtvJQLXhmTe8G78ZsVAxmHdYhbWf-7tLYR2zcFtYpcE3OOYumwtoY88fJ2L9rGDd412TVvGjDTZDBfnZBe-rbvNZ_PAm7JpcOLALyNpr92vsjR95CpuoasXHhlr_npdacq0pQwaRuD2sw"/>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-black dark:text-white">Emily Rodriguez</h3>
+<p class="text-sm text-black/60 dark:text-white/60">Madison Middle School</p>
+<p class="text-sm text-black/60 dark:text-white/60 font-medium mt-1">Dropped off 20 min ago</p>
+</div>
+<button class="p-2 text-black/20 dark:text-white/20">
+<span class="material-symbols-outlined text-3xl">radio_button_unchecked</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-4">
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">history</span>
+<span>View History</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors text-sm">
+<span class="material-symbols-outlined text-base">event_busy</span>
+<span>Absence Records</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white dark:bg-background-dark/50 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-background-dark/70 transition-colors shadow">
+<span class="material-symbols-outlined text-primary">add_circle</span>
+<span>Add a Child</span>
+</button>
+</main>
+<footer class="sticky bottom-0 bg-white dark:bg-background-dark/80 backdrop-blur-sm border-t border-black/5 dark:border-white/5">
+<nav class="flex justify-around p-2">
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-primary" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-xs font-medium">Children</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">event_busy</span>
+<span class="text-xs font-medium">Absence</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">pin_drop</span>
+<span class="text-xs font-medium">Locations</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

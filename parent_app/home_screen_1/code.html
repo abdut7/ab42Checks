@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="p-4 flex items-center justify-between">
+<button class="p-2 text-black dark:text-white">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-black dark:text-white">Trip History</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-grow p-4 space-y-6">
+<div class="space-y-4">
+<h2 class="text-lg font-bold text-black dark:text-white">Today</h2>
+<div class="bg-white dark:bg-background-dark/50 p-4 rounded-xl shadow space-y-4">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/40 shrink-0 size-12 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Pickup</p>
+<p class="text-sm text-black/60 dark:text-white/60">8:05 AM - Completed</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-bold text-black dark:text-white">Yesterday</h2>
+<div class="bg-white dark:bg-background-dark/50 p-4 rounded-xl shadow space-y-4">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/40 shrink-0 size-12 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Drop-off</p>
+<p class="text-sm text-black/60 dark:text-white/60">4:32 PM - Completed</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/40 shrink-0 size-12 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Pickup</p>
+<p class="text-sm text-black/60 dark:text-white/60">8:03 AM - Completed</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-lg font-bold text-black dark:text-white">September 24, 2023</h2>
+<div class="bg-white dark:bg-background-dark/50 p-4 rounded-xl shadow space-y-4">
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-red-100 dark:bg-red-900/40 shrink-0 size-12 text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined text-3xl">cancel</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Drop-off</p>
+<p class="text-sm text-black/60 dark:text-white/60">4:30 PM - Canceled</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/40 shrink-0 size-12 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-black dark:text-white">Pickup</p>
+<p class="text-sm text-black/60 dark:text-white/60">8:01 AM - Completed</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 bg-white dark:bg-background-dark/80 backdrop-blur-sm border-t border-black/5 dark:border-white/5">
+<nav class="flex justify-around p-2">
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-xs font-medium">Children</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">event_busy</span>
+<span class="text-xs font-medium">Absence</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">pin_drop</span>
+<span class="text-xs font-medium">Locations</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

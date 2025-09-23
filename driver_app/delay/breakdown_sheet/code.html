@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0b73da",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter"],
+            },
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%23ffffff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex h-screen w-full flex-col items-center justify-end bg-background-light/50 dark:bg-background-dark/50">
+<div class="w-full max-w-md bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center p-2">
+<div class="h-1.5 w-10 rounded-full bg-background-dark/20 dark:bg-background-light/20"></div>
+</div>
+<div class="p-6 pt-4">
+<h1 class="text-2xl font-bold text-background-dark dark:text-background-light">Report Delay or Breakdown</h1>
+<div class="mt-6 space-y-4">
+<div class="flex flex-col space-y-2">
+<label class="text-sm font-medium text-background-dark/70 dark:text-background-light/70" for="reason">Reason</label>
+<select class="form-select w-full appearance-none rounded-lg border-none bg-background-dark/10 dark:bg-background-light/10 p-3 text-background-dark dark:text-background-light focus:outline-none focus:ring-2 focus:ring-primary" id="reason">
+<option>Select Reason</option>
+<option>Traffic</option>
+<option>Mechanical Issue</option>
+<option>Student Issue</option>
+<option>Other</option>
+</select>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="text-sm font-medium text-background-dark/70 dark:text-background-light/70" for="note">Note (optional)</label>
+<textarea class="min-h-[100px] w-full resize-none rounded-lg border-none bg-background-dark/10 dark:bg-background-light/10 p-3 text-background-dark dark:text-background-light placeholder-background-dark/50 dark:placeholder-background-light/50 focus:outline-none focus:ring-2 focus:ring-primary" id="note" placeholder="Add a note..."></textarea>
+</div>
+<button class="flex items-center justify-center space-x-2 rounded-lg border border-dashed border-background-dark/30 dark:border-background-light/30 p-4 text-center text-background-dark dark:text-background-light transition-colors hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined text-xl"> photo_camera </span>
+<span class="text-sm font-medium">Attach Photo</span>
+</button>
+</div>
+</div>
+<div class="sticky bottom-0 bg-background-light dark:bg-background-dark p-4 pb-6">
+<button class="w-full rounded-lg bg-primary py-3.5 text-base font-bold text-white shadow-lg shadow-primary/30 transition-transform active:scale-95">Submit Report</button>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "foreground-light": "#111618",
+                        "foreground-dark": "#f6f7f8",
+                        "muted-foreground-light": "#617c89",
+                        "muted-foreground-dark": "#94a3b8",
+                        "input-light": "#f0f3f4",
+                        "input-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col h-screen justify-between p-6">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-primary rounded-xl mb-8 flex items-center justify-center">
+<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h1 class="text-3xl font-bold text-foreground-light dark:text-foreground-dark text-center">Welcome Back</h1>
+<p class="text-muted-foreground-light dark:text-muted-foreground-dark text-center mt-2">Log in to continue your journey.</p>
+</div>
+<div class="space-y-4">
+<div>
+<label class="sr-only" for="email">Email</label>
+<input class="w-full h-14 bg-input-light dark:bg-input-dark border-none rounded-xl px-4 text-foreground-light dark:text-foreground-dark placeholder-muted-foreground-light dark:placeholder-muted-foreground-dark focus:ring-2 focus:ring-primary focus:ring-opacity-50" id="email" placeholder="Email" type="email"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input class="w-full h-14 bg-input-light dark:bg-input-dark border-none rounded-xl px-4 text-foreground-light dark:text-foreground-dark placeholder-muted-foreground-light dark:placeholder-muted-foreground-dark focus:ring-2 focus:ring-primary focus:ring-opacity-50" id="password" placeholder="Password" type="password"/>
+</div>
+<div class="text-right">
+<a class="text-sm font-medium text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+</div>
+<div class="flex flex-col items-center space-y-4">
+<button class="w-full bg-primary text-white font-bold h-14 rounded-xl text-lg tracking-wide hover:bg-opacity-90 transition-colors">
+                Log In
+            </button>
+<p class="text-muted-foreground-light dark:text-muted-foreground-dark text-sm">Don't have an account? <a class="font-bold text-primary hover:underline" href="#">Sign Up</a></p>
+</div>
+</div>
+
+</body></html>

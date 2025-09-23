@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="p-4 flex items-center justify-between">
+<button class="p-2 text-black dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-lg font-bold text-black dark:text-white">Home</h1>
+<div class="w-10"></div>
+</header>
+<main class="flex-grow p-4 space-y-6">
+<div class="relative">
+<select class="w-full pl-10 pr-4 py-3 appearance-none border-none rounded-xl bg-white dark:bg-background-dark/50 text-black dark:text-white font-medium focus:ring-2 focus:ring-primary">
+<option selected="">Alex Miller</option>
+<option>Sophia Miller</option>
+</select>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-black/60 dark:text-white/60">child_care</span>
+</div>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<span class="material-symbols-outlined text-black/60 dark:text-white/60">arrow_drop_down</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-background-dark/50">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5JUcEG9flTrF1Mfmn-FRCb93xsxVKwUCCAcczurkEX2tPz9OaBGd_xcgnzIuk3KHPM5IyDVVxBKKeVZBbbbP3lR3FS1o1Fq6du3sxOVhshUDA5iR2mIO_Gzbl9QO5Acr4g6_9y05wJEbwW0os5dNyHQ5s3qo55qzyxN5R8MmCvG5VryPszKgfXkYV7UX1Ndd-EyV7sy29IanEbsvpjZJLEKCWPyCn_IyE3oRdIvjE9BL4bAISQlx7dONcKkZqz6HxdQt1fheA8nw");'></div>
+<div class="p-4">
+<h2 class="text-lg font-bold text-black dark:text-white">Live Map</h2>
+<p class="text-sm text-black/60 dark:text-white/60 mt-1">Track Alex's bus in real-time</p>
+<p class="text-sm text-black/60 dark:text-white/60 mt-0.5">Bus 1234 • Stop: 123 Main St • ETA: 5 min</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-background-dark/50 shadow text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-background-dark/70 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">history</span>
+<span>Trip History</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-background-dark/50 shadow text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-background-dark/70 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">event_busy</span>
+<span>Absence Records</span>
+</button>
+</div>
+<div>
+<h2 class="text-xl font-bold text-black dark:text-white mb-3">Upcoming</h2>
+<div class="bg-white dark:bg-background-dark/50 p-4 rounded-xl shadow space-y-3">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 shrink-0 size-12 text-primary">
+<span class="material-symbols-outlined text-3xl">directions_bus</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-bold text-primary dark:text-primary">Pickup</p>
+<p class="text-base font-medium text-black dark:text-white">Tomorrow, 8:00 AM</p>
+<p class="text-sm text-black/60 dark:text-white/60">Bus 1234 • Stop: 123 Main St</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-medium hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined">edit_location_alt</span>
+<span>Change</span>
+</button>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 font-medium hover:bg-red-200/60 dark:hover:bg-red-900/40 transition-colors">
+<span class="material-symbols-outlined">cancel</span>
+<span>Cancel</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 bg-white dark:bg-background-dark/80 backdrop-blur-sm border-t border-black/5 dark:border-white/5">
+<nav class="flex justify-around p-2">
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-xs font-medium">Children</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">event_busy</span>
+<span class="text-xs font-medium">Absence</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-1/5 text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">pin_drop</span>
+<span class="text-xs font-medium">Locations</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

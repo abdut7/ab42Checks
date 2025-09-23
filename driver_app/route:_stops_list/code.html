@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<title>Student Stops</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0b73da",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col h-screen justify-between">
+<div>
+<header class="bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-10 flex items-center justify-between p-4 border-b border-white/10 dark:border-white/10">
+<button class="p-2 -m-2 text-white">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-white text-center">Student Stops</h1>
+<button class="p-2 -m-2 text-white">
+<span class="material-symbols-outlined">drag_handle</span>
+</button>
+</header>
+<main class="divide-y divide-white/10">
+<div class="group">
+<div class="flex items-center gap-4 p-4">
+<div class="flex-1 flex items-center gap-4">
+<div class="relative">
+<img alt="Ethan Carter" class="h-14 w-14 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiOgIKHNqVWWB0OrZ4s45Vh5tcQj7chYxC2YjCyvxWXzpNYnQMTYlZXVjN_JLP-qEHdKXC2JPMa8m3GiKurTkA4nXiNyNl0GUAvzTKpxDYtvvzEPm6kWDICoTpKRIrfPpWkDn3vjFmjVNEmRsNz2wmzNP4QvXG29uyFxjfZpxFTL8yhP26VLi_-eVEueXFWTgPeaCkVtGiwnxSuo5-23FEBoya1B0S9Zux1ZuzXEdAzfV3JSG0p9SG6-ShT_EyOGy5XIxTBjvwQJo"/>
+</div>
+<div>
+<p class="text-base font-medium text-white">Ethan Carter</p>
+<p class="text-sm text-white/60">123 Elm St</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-base font-medium text-white">8:00 AM</p>
+<p class="text-sm text-white/60">ETA</p>
+</div>
+<div class="bg-white/10 dark:bg-white/20 h-10 w-16 rounded-full p-1 flex items-center cursor-pointer transition-colors group-data-[absent=true]:bg-primary">
+<div class="bg-white h-8 w-8 rounded-full transition-transform group-data-[absent=true]:translate-x-6"></div>
+</div>
+</div>
+</div>
+<div class="group" data-absent="true">
+<div class="flex items-center gap-4 p-4">
+<div class="flex-1 flex items-center gap-4">
+<div class="relative">
+<img alt="Sophia Lee" class="h-14 w-14 rounded-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxFcDY_o0R2--VTBPLfEGHrbp2DWQAwEUhVjHIQ39AjjZfwPFVuqgrBdVwUYdc9vp04vp6iJFcECjiw9vq3vG4sQZHbuBxni8ypAcOzeFcyq10l_ILMa7M6gpkD2q-94-L2kSLKX3WFD6aebgA5Qmy-I4ZSwLUq1-QPp2wfSfxQLifsoXhB0McPm5l1tbyTwa3Whq8faMyyEphB0rJthxRl8KFsJknuET-SHH9ru4UkZu3hRy_T-8gk94fl2SYGUqPgT9bwfXsU8"/>
+<div class="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center">
+<span class="text-xs font-bold text-white uppercase">Absent</span>
+</div>
+</div>
+<div>
+<p class="text-base font-medium text-white/50 line-through">Sophia Lee</p>
+<p class="text-sm text-white/40 line-through">456 Oak Ave</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-base font-medium text-white/50 line-through">8:15 AM</p>
+<p class="text-sm text-white/40">ETA</p>
+</div>
+<div class="bg-white/10 dark:bg-white/20 h-10 w-16 rounded-full p-1 flex items-center cursor-pointer transition-colors group-data-[absent=true]:bg-primary">
+<div class="bg-white h-8 w-8 rounded-full transition-transform group-data-[absent=true]:translate-x-6"></div>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="flex items-center gap-4 p-4">
+<div class="flex-1 flex items-center gap-4">
+<div class="relative">
+<img alt="Noah Clark" class="h-14 w-14 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQjSU1kwBnDOaShbAt0jHXVQ-nkERR3Yp1EniZh0yI2omKZsxpbrN7fWUAaRk9Ml9i57Y82_F-XDsIgkkHb8n6PdKazonVZMaR0SnHFzQ0pMFSOG9XkMce1sjCUIUNC0jDJxxURXSqMTcomV93IJ8B-gZChyPhvvK_WYBTWj2As4knrwuVGMkkGQoKEDUZ0-ztXZ0MZcu8yj-S8xhNwEVpyjceToxMT6Lnfhzpnoua1-ne2cYaLhICUzR6pul12BhmQwAF47Whuk"/>
+</div>
+<div>
+<p class="text-base font-medium text-white">Noah Clark</p>
+<p class="text-sm text-white/60">789 Pine Ln</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-base font-medium text-white">8:30 AM</p>
+<p class="text-sm text-white/60">ETA</p>
+</div>
+<div class="bg-white/10 dark:bg-white/20 h-10 w-16 rounded-full p-1 flex items-center cursor-pointer transition-colors group-data-[absent=true]:bg-primary">
+<div class="bg-white h-8 w-8 rounded-full transition-transform group-data-[absent=true]:translate-x-6"></div>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="flex items-center gap-4 p-4">
+<div class="flex-1 flex items-center gap-4">
+<div class="relative">
+<img alt="Olivia Green" class="h-14 w-14 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAYFRIY3I9xttIPfWC3io8sakI5lazaKJpmIbyOqxuGOEz6KagW13kz_nmUTdD2DJGjj1o5wFQvfYXyf6r6PXMjxttCjdTtZ1GpUZqtw2F4cPbWoChVv74MQfij0fqMCOJNBENr7L7Byb8CiG_jbjdgFSaPcXqkUVZllejDMeyIM11gzDGQvPdZgEIe-ynjjcTsHO_aHQPw6aKaocSZAXxuYFeryPpEprBEJBbnQlY5TtDzUQI3TAIXe3H-XZQHlCOw-VBay6_Ziw"/>
+</div>
+<div>
+<p class="text-base font-medium text-white">Olivia Green</p>
+<p class="text-sm text-white/60">101 Maple Dr</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-base font-medium text-white">8:45 AM</p>
+<p class="text-sm text-white/60">ETA</p>
+</div>
+<div class="bg-white/10 dark:bg-white/20 h-10 w-16 rounded-full p-1 flex items-center cursor-pointer transition-colors group-data-[absent=true]:bg-primary">
+<div class="bg-white h-8 w-8 rounded-full transition-transform group-data-[absent=true]:translate-x-6"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="bg-background-light dark:bg-background-dark/80 backdrop-blur-sm border-t border-white/10 dark:border-white/10 p-2 pb-safe-bottom">
+<nav class="flex justify-around">
+<a class="flex flex-col items-center gap-1 p-2 text-white/60 hover:text-white transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 rounded-lg bg-primary/20 text-primary transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-xs font-bold">Route</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-white/60 hover:text-white transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-white/60 hover:text-white transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-xs">Summary</span>
+</a>
+</nav>
+</footer>
+</div>
+
+</body></html>

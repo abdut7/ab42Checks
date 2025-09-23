@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Absence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1193d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+            "foreground-light": "#111618",
+            "foreground-dark": "#ffffff",
+            "subtle-light": "#617c89",
+            "subtle-dark": "#a0b1b9",
+            "border-light": "#dbe2e6",
+            "border-dark": "#3a4a52"
+          },
+          fontFamily: {
+            "display": ["Manrope"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .form-select {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23617c89' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    }
+    .dark .form-select {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a0b1b9' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col h-screen justify-between">
+<div class="p-4 space-y-6">
+<header class="flex items-center justify-between">
+<button class="p-2 -ml-2">
+<span class="material-symbols-outlined text-foreground-light dark:text-foreground-dark">close</span>
+</button>
+<h1 class="text-lg font-bold">Mark Absence</h1>
+<div class="w-8"></div>
+</header>
+<section>
+<h2 class="text-sm font-bold text-subtle-light dark:text-subtle-dark uppercase tracking-wider mb-2">Child</h2>
+<div class="flex items-center gap-4 bg-white dark:bg-black/10 p-4 rounded-lg">
+<img alt="Ethan Carter" class="h-12 w-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1LSlvF4XmO9AoSyQTHXOuHjLBKdV5hrO40cZ2ggBpwlAbBT2bUA11pk3EgRdd8ilaR14RVk_RC109xs4J3AkOJ3vo133-8Ql9wzI1r8EZDk24W5zsCerkZRaXg3hk4ZCmU4KJxRZshmT7jlgwWkP3pm-KGk9AHVsNtXTv5AXez46-Vwt-uC-K1YYtCExe5hhJ5WY4nQzbRBSkIp2A3DN7tqeDxLDdq7E4GWVT9ZLYTcGWTXg7FuB_cNPAL9EQNdDfkXwbupQ4I6A"/>
+<div>
+<p class="font-bold text-foreground-light dark:text-foreground-dark">Ethan Carter</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Grade 2</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-sm font-bold text-subtle-light dark:text-subtle-dark uppercase tracking-wider mb-2">Date</h2>
+<div class="relative">
+<input class="form-input w-full bg-white dark:bg-black/10 border-border-light dark:border-border-dark focus:ring-primary focus:border-primary rounded-lg h-14 pl-4 pr-12 text-base" placeholder="Select Date" type="text" value="Aug 15, 2024"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-subtle-light dark:text-subtle-dark pointer-events-none">calendar_today</span>
+</div>
+</section>
+<section>
+<h2 class="text-sm font-bold text-subtle-light dark:text-subtle-dark uppercase tracking-wider mb-2">Reason</h2>
+<div>
+<select class="form-select w-full bg-white dark:bg-black/10 border-border-light dark:border-border-dark focus:ring-primary focus:border-primary rounded-lg h-14 text-base">
+<option>Sickness</option>
+<option>Family Emergency</option>
+<option>Appointment</option>
+<option>Other</option>
+</select>
+</div>
+</section>
+</div>
+<div class="p-4 pb-8">
+<button class="w-full bg-primary text-white font-bold h-12 rounded-xl flex items-center justify-center">
+        Mark Absence
+      </button>
+</div>
+</div>
+
+</body></html>

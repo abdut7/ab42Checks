@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Public Sans"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#101922] dark:text-background-light">
+<div class="flex min-h-screen">
+<aside class="w-64 shrink-0 bg-background-light dark:bg-background-dark border-r border-[#101922]/10 dark:border-background-light/10">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">School Bus Tracker</h1>
+</div>
+</div>
+<nav class="px-4">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-[#101922]/70 dark:text-background-light/70 hover:bg-[#101922]/5 dark:hover:bg-background-light/5" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-semibold" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M248,80v24a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0ZM16,72a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V80A8,8,0,0,0,16,72Zm200-8V208a16,16,0,0,1-16,16H176a16,16,0,0,1-16-16v-8H96v8a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V64A32,32,0,0,1,72,32H184A32,32,0,0,1,216,64ZM104,148a12,12,0,1,0-12,12A12,12,0,0,0,104,148Zm72,0a12,12,0,1,0-12,12A12,12,0,0,0,176,148Zm24-76H56v40H200Z"></path>
+</svg>
+<span class="text-sm">Buses</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-[#101922]/70 dark:text-background-light/70 hover:bg-[#101922]/5 dark:hover:bg-background-light/5" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z"></path>
+</svg>
+<span class="text-sm font-medium">Routes</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-[#101922]/70 dark:text-background-light/70 hover:bg-[#101922]/5 dark:hover:bg-background-light/5" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
+</svg>
+<span class="text-sm font-medium">Students</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-[#101922]/70 dark:text-background-light/70 hover:bg-[#101922]/5 dark:hover:bg-background-light/5" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+<span class="text-sm font-medium">Notifications</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<main class="flex-1">
+<header class="flex items-center justify-between px-8 py-4 border-b border-[#101922]/10 dark:border-background-light/10">
+<div class="relative w-full max-w-md">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<svg class="w-5 h-5 text-[#101922]/50 dark:text-background-light/50" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-[#101922]/5 dark:bg-background-light/5 border-transparent focus:border-primary focus:ring-primary" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative text-[#101922]/70 dark:text-background-light/70">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+<span class="absolute top-0 right-0 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<div class="w-10 h-10 bg-center bg-no-repeat bg-cover rounded-full" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC17nhljnJ8RGnIFBCZLjy_vFW4g-cGbsciu8UuwUv8poU3tfejVbI8SrgjtZqF2wf5gfavA4gOiVzAX_OmMKnrJou9wjHtoU7V_MG6mhwvPWvdhq_2yM7vx_Lt1tu5yyp3RKPAaPptXU6oCLDSCyP7nqrmmwEYFi7Czr82LlslzV8C-wlcofokz-T4pZ_elw0WmtO60zylf-rtIlNz0ZHf-Avi_HtzDdBDRpEXkMqMGilItbOkr2SNOHpCH5oEIrOqNGZ32AOqPLMG");'></div>
+</div>
+</header>
+<div class="p-8">
+<div class="mb-8">
+<h2 class="text-3xl font-bold">Bus Details</h2>
+<p class="text-sm text-[#101922]/60 dark:text-background-light/60">View and manage details for a specific bus.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-background-light dark:bg-background-dark rounded-lg border border-[#101922]/10 dark:border-background-light/10">
+<div class="p-6 border-b border-[#101922]/10 dark:border-background-light/10">
+<h3 class="text-lg font-bold">Bus Information</h3>
+</div>
+<div class="p-6 grid grid-cols-2 gap-x-8 gap-y-4">
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Bus No./Plate</p><p class="font-semibold">B12345</p></div>
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Company</p><p class="font-semibold">Acme Transport</p></div>
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Driver</p><p class="font-semibold">Robert Smith</p></div>
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Capacity</p><p class="font-semibold">45</p></div>
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Status</p><p class="font-semibold text-green-500">Active</p></div>
+<div><p class="text-sm text-[#101922]/60 dark:text-background-light/60">Last Seen</p><p class="font-semibold">5 minutes ago</p></div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-lg border border-[#101922]/10 dark:border-background-light/10">
+<div class="p-6 border-b border-[#101922]/10 dark:border-background-light/10">
+<h3 class="text-lg font-bold">Map</h3>
+</div>
+<div class="p-6">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg object-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLQThjqvzFN30HoNF9vKB8CCAq8gpO0I9AW2UIgMAJjgQSVtg-HpcFSVJr0SyqK1CUeaxkzJsVwoxOQghDm2Y8aCODZEpZPq481SC77wNtqoLcoBqiDtWOhFCIpRmUe0PQoV6vVExyk0Hqxd0lmX4KzsnUttYzUf6kErv_b9cNkUB_t_RWDRoTx4tu8s6fTsY3a0Us0VE8j5L55HlvwaZAF60kadzQoB-jzAUy-4Uj7VS5D3n0LFsBGJ3IBWG54lg6AYekN4XDOYjY");'></div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-lg border border-[#101922]/10 dark:border-background-light/10 @container">
+<div class="p-6 border-b border-[#101922]/10 dark:border-background-light/10">
+<h3 class="text-lg font-bold">Trips</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead class="text-left text-[#101922]/60 dark:text-background-light/60">
+<tr>
+<th class="px-6 py-3 font-medium">Date</th>
+<th class="px-6 py-3 font-medium">Start</th>
+<th class="px-6 py-3 font-medium">End</th>
+<th class="px-6 py-3 font-medium">Duration</th>
+<th class="px-6 py-3 font-medium">Distance</th>
+<th class="px-6 py-3 font-medium">Stops</th>
+<th class="px-6 py-3 font-medium">Delays?</th>
+<th class="px-6 py-3 font-medium">Breakdowns?</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#101922]/10 dark:divide-background-light/10">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">2024-07-26</td>
+<td class="px-6 py-4 whitespace-nowrap">7:55 AM</td>
+<td class="px-6 py-4 whitespace-nowrap">4:05 PM</td>
+<td class="px-6 py-4 whitespace-nowrap">8h 10m</td>
+<td class="px-6 py-4 whitespace-nowrap">35 km</td>
+<td class="px-6 py-4 whitespace-nowrap">4</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">2024-07-25</td>
+<td class="px-6 py-4 whitespace-nowrap">7:50 AM</td>
+<td class="px-6 py-4 whitespace-nowrap">4:10 PM</td>
+<td class="px-6 py-4 whitespace-nowrap">8h 20m</td>
+<td class="px-6 py-4 whitespace-nowrap">38 km</td>
+<td class="px-6 py-4 whitespace-nowrap">4</td>
+<td class="px-6 py-4 whitespace-nowrap text-red-500">Yes</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">2024-07-24</td>
+<td class="px-6 py-4 whitespace-nowrap">8:00 AM</td>
+<td class="px-6 py-4 whitespace-nowrap">4:00 PM</td>
+<td class="px-6 py-4 whitespace-nowrap">8h 00m</td>
+<td class="px-6 py-4 whitespace-nowrap">36 km</td>
+<td class="px-6 py-4 whitespace-nowrap">4</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">2024-07-23</td>
+<td class="px-6 py-4 whitespace-nowrap">7:55 AM</td>
+<td class="px-6 py-4 whitespace-nowrap">4:05 PM</td>
+<td class="px-6 py-4 whitespace-nowrap">8h 10m</td>
+<td class="px-6 py-4 whitespace-nowrap">37 km</td>
+<td class="px-6 py-4 whitespace-nowrap">4</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap">2024-07-22</td>
+<td class="px-6 py-4 whitespace-nowrap">7:50 AM</td>
+<td class="px-6 py-4 whitespace-nowrap">4:10 PM</td>
+<td class="px-6 py-4 whitespace-nowrap">8h 20m</td>
+<td class="px-6 py-4 whitespace-nowrap">39 km</td>
+<td class="px-6 py-4 whitespace-nowrap">4</td>
+<td class="px-6 py-4 whitespace-nowrap text-red-500">Yes</td>
+<td class="px-6 py-4 whitespace-nowrap">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-lg border border-[#101922]/10 dark:border-background-light/10">
+<div class="p-6 border-b border-[#101922]/10 dark:border-background-light/10">
+<h3 class="text-lg font-bold">Route &amp; Students</h3>
+</div>
+<div class="p-6">
+<ol class="relative border-l border-[#101922]/20 dark:border-background-light/20 space-y-8">
+<li class="ml-8">
+<span class="absolute flex items-center justify-center w-8 h-8 bg-primary/20 rounded-full -left-4">
+<img alt="Emily Johnson" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWaQjtvWs6tOvsxDdnFmS5LnKVEAsEi-rAqTcwQQ6S7pp4F5zNV0wt-q5odkIzjFSLNxKAIFJnrgGCrJQ335g1VUeZLxsGjGOqSMXI81qE6l1KIINvjcBa_85nfoRHRKNHgxmOPLj0_zEv0KT1_Q6Qniiio2KzqLDuuzVXU8HVfRJbnoHyX3uT8Areyb4IELrWlfOMClxYq_Sv6SkFZ83Q-OTzAI1BwJdAjCDhZsUitIfNfywc8BwqS_IpefbJJEyboW3Qw0m4iRI"/>
+</span>
+<h4 class="flex items-center mb-1 text-base font-semibold">
+                      Emily Johnson <span class="bg-blue-100 text-primary text-xs font-medium mr-2 px-2.5 py-0.5 rounded-lg ml-3">Pickup</span>
+</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-[#101922]/60 dark:text-background-light/60">8:00 AM</time>
+<p class="text-sm text-[#101922]/80 dark:text-background-light/80">123 Maple Street, Springfield</p>
+</li>
+<li class="ml-8">
+<span class="absolute flex items-center justify-center w-8 h-8 bg-primary/20 rounded-full -left-4">
+<img alt="David Lee" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB65kMjnhYYFop2Tbl1QGkiIPkNIdR7KYlqjhGGPd-HhzeWeIQ425s5NtV5gQ3GQR5eWmFW8kyFd2Ar8KaLILHGeKw7X7Tx82_mEu22H7MbwAObKPOih_aGM-zxoZacYy3M629aiLhON4xfOxsqEPJH0tMvXFfXypNzJ7cKXiin2t6rGoLoR0HMohqlHkHmMJ7y5Yl-ugLw2_Al1D4RJtnnS0N2cQ7-tj5erpS8cot7wGBk88sIc1UUo6u-f7RenNRTgnRhxaZCJoKt"/>
+</span>
+<h4 class="flex items-center mb-1 text-base font-semibold">
+                      David Lee <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-lg ml-3">Dropoff</span>
+</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-[#101922]/60 dark:text-background-light/60">3:30 PM</time>
+<p class="text-sm text-[#101922]/80 dark:text-background-light/80">456 Oak Avenue, Springfield</p>
+</li>
+<li class="ml-8">
+<span class="absolute flex items-center justify-center w-8 h-8 bg-primary/20 rounded-full -left-4">
+<img alt="Sophia Brown" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc1x1e4oB5Fb7Pky3n-WmZinX6fs5k-nHzOS64BGr5v6Zf-ABgxJyhBE5ZAWqzv3Gf85ECmPGBwMZk8m2pPaZtar4WKzK72oZqitGUh9RgNhglMO-lqcGNulxJInsq9h4ngMdwhtWi6ul4kM0MawZVwPu6iTetJeCspdJ5_37vI7NT3z75dMLFqGdxr6lOuKtBuVIAAsfX1xOl9r6PTO1QddnS8al6bjHRckrzdPcbc8a3K0EjBANAZBEjZNIIJ28YDWGLFkfLRW9q"/>
+</span>
+<h4 class="flex items-center mb-1 text-base font-semibold">
+                      Sophia Brown <span class="bg-blue-100 text-primary text-xs font-medium mr-2 px-2.5 py-0.5 rounded-lg ml-3">Pickup</span>
+</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-[#101922]/60 dark:text-background-light/60">8:15 AM</time>
+<p class="text-sm text-[#101922]/80 dark:text-background-light/80">789 Pine Lane, Springfield</p>
+</li>
+<li class="ml-8">
+<span class="absolute flex items-center justify-center w-8 h-8 bg-primary/20 rounded-full -left-4">
+<img alt="Ethan Clark" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDfwZTi-kpq6o9S1KA2tmcxjeH6OrBJ7lWucaHy7j7ek0kMN5fSi33bVaYTBWtCfGOZwLvx6V6Fv5kcULabAmKL69xPw7ylMysxO8MXxvZu-pTIz6aGokNqTe-v80st8ET-3JQB0oXlG0pOOerjylNaeUkoaXRfSjp4YcZKyGeNqwQnoyUxN9c1-5uPQsp8e5WqP4HAktRqOpILxEvyZ7r0seXCLGXqmuEC4PzfewzqQYO4Zsk6AYbR3sDYQH2IcofdPoigHTMHT-J"/>
+</span>
+<h4 class="flex items-center mb-1 text-base font-semibold">
+                      Ethan Clark <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-lg ml-3">Dropoff</span>
+</h4>
+<time class="block mb-2 text-sm font-normal leading-none text-[#101922]/60 dark:text-background-light/60">3:45 PM</time>
+<p class="text-sm text-[#101922]/80 dark:text-background-light/80">101 Elm Street, Springfield</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

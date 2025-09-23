@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0b73da",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .form-input::placeholder {
+        color: #6b7280;
+      }
+      .dark .form-input::placeholder {
+        color: #9ca3af;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<main class="flex-grow flex items-center justify-center p-6">
+<div class="w-full max-w-sm mx-auto">
+<div class="text-center mb-10">
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white">Welcome Back</h1>
+<p class="mt-2 text-base text-gray-600 dark:text-gray-400">Log in to manage student transport</p>
+</div>
+<div class="space-y-6">
+<div>
+<label class="sr-only" for="username">Username</label>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-gray-900 dark:text-white focus:ring-primary focus:border-primary p-4 text-base" id="username" name="username" placeholder="Username" type="text"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark text-gray-900 dark:text-white focus:ring-primary focus:border-primary p-4 text-base" id="password" name="password" placeholder="Password" type="password"/>
+</div>
+<button class="w-full h-14 px-5 flex items-center justify-center rounded-lg bg-primary text-white text-base font-semibold hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+              Login
+            </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
